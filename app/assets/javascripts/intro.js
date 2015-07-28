@@ -42,6 +42,8 @@ function intrographic1() {
 	this.bottomright=[centerx+(size/2),centery-(size/2)];
     };
 
+    var shapegroup = two.makeGroup();
+   
     for (i=0;i<(w/50);i++) {
 	for (j=0;j<(h/50);j++) {
 	    //init square and draw triangle from square
@@ -58,16 +60,18 @@ function intrographic1() {
 	    triangle2.stroke= 'rgb(239,239,239)';
 	    triangle3.stroke= 'rgb(226,227,233)';
 	    triangle4.stroke= 'rgb(252,252,252)';
+	    shapegroup.add(triangle1,triangle2,triangle3,triangle4);
 	}
     }
+    two.bind('update', function(frameCount) {
+	var t = 0.025;
+	shapegroup.opacity -= t;
+    }).play();
 
-    two.update();
-
-    var hidediv = setTimeout(hidediv, 4000);
+    var hidediv = setTimeout(hidediv, 3000);
     function hidediv() {
-     	document.getElementById('animation').style.display='none';
-    } 
-
+	document.getElementById('animation').style.display='none';
+    }
 
 
 }
