@@ -60,7 +60,16 @@ function intrographic1() {
 	    triangle4.stroke= 'rgb(252,252,252)';
 	}
     }
+
     two.update();
+
+    var hidediv = setTimeout(hidediv, 4000);
+    function hidediv() {
+     	document.getElementById('animation').style.display='none';
+    } 
+
+
+
 }
 
 
